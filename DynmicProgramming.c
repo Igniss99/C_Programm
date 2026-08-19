@@ -1,19 +1,32 @@
+#include <stdio.h>
+#include <time.h>
+
+
+static int cache[100] = {0};
+
 int fib(int n)
+
 {
-    if (n<-1 return n;
-    else return fib(n-1) + fib(n-2);
+    if (n <= 1) 
+    return n;
+      else return fib(n - 1) + fib(n - 2);
 
 }
 
-int main (int argc, char* argb[])
-
-for (int n = 1; n <50; n += 1)
-
-
+int main(int argc, char* argv[])
 {
-  clock_t time1 = clock();
-  int result = fib(n);
-  clock_t time2- clock();
-  int delta_ms - (time2 - time1) * 1000 / CLOCKS_PER_SEC;
-  print("fib(%d) = %d, time = %d ms\n", n, result, delta_ms);
+    int n = 40;
+    clock_t start, end;
+    double cpu_time_used;
+
+    start = clock();
+    int result = fib(n);
+    end = clock();
+
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+
+    printf("Fibonacci of %d is %d\n", n, result);
+    printf("Time taken: %f seconds\n", cpu_time_used);
+
+    return 0;
 }
